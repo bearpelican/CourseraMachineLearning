@@ -22,10 +22,12 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
-
-
-
+for i = 1:size(X, 1)
+    errors = centroids - X(i, :);
+    errors = sum(errors .^ 2, 2);
+    [~, min_idx] = min(errors);
+    idx(i, 1) = min_idx;
+end
 
 % =============================================================
 
